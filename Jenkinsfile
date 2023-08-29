@@ -11,7 +11,7 @@ environment {
         stage('Build Maven package') {
             steps {
                 echo"-----------Build Started----------"
-                sh '/usr/local/src/apache-maven/bin/mvn clean install'
+                sh 'mvn clean install'
                 echo"----------Build completed--------"
             }
         }
