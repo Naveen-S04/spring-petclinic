@@ -54,7 +54,7 @@ environment {
         stage('Push docker image') {
             steps {
                 
-                sh 'sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}'
+                sh 'sudo docker push ${docker_image}:${docker_tag}'
             }
         }
     }
