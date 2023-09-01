@@ -53,7 +53,8 @@ environment {
 
        stage('Push docker image') {
             steps {
-                
+                                sh 'sudo docker tag ${docker_image}:v1 ${dockerhub_repo}/${docker_image}:$v1'
+
                 sh 'sudo docker push ${dockerhub_repo}/${docker_image}:v1'
             }
         }
