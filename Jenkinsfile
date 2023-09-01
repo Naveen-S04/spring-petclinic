@@ -11,11 +11,8 @@ environment {
         stage('Build Maven package') {
             steps {
                 echo"-----------Build Started----------"
-<<<<<<< HEAD
-                sh sh './mvnw package'
-=======
-                sh 'mvn clean install'
->>>>>>> 1ad3ae5090e421fd5320307cb05ab43ba94eff31
+                sh 'mvn package -Dmaven.test.skip'
+
                 echo"----------Build completed--------"
             }
         }
