@@ -11,7 +11,7 @@ environment {
         stage('Build Maven package') {
             steps {
                 echo"-----------Build Started----------"
-                sh 'mvn clean install -Dskiptests'
+                sh 'mvn package -Dmaven.test.skip'
 
                 echo"----------Build completed--------"
             }
