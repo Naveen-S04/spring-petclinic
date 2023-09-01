@@ -55,8 +55,8 @@ environment {
     steps {
         sh 'echo "--------started pushing--------"'
         sh 'sudo docker tag ${docker_image}:${docker_tag} ${dockerhub_repo}/${docker_image}:${docker_tag}'
-        sh 'sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}'
-        
+        sh 'sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag$:{docker_tag}}'
+     
         sh 'echo "---------push complete-------------"'
     }
 }
