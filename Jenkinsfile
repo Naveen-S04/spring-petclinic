@@ -11,7 +11,7 @@ environment {
         stage('Build Maven package') {
             steps {
                 echo"-----------Build Started----------"
-                sh '/mvn clean install'
+                sh sh './mvnw package'
                 echo"----------Build completed--------"
             }
         }
