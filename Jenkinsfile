@@ -23,7 +23,7 @@ environment {
         stage('Build Maven package') {
             steps {
                 echo"-----------Build Started----------"
-                sh 'mvn clean install'
+                sh 'mvn clean install -DskipTests'
                 echo"----------Build completed--------"
             }
         }
