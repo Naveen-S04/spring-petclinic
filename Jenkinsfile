@@ -9,7 +9,7 @@ environment {
 
 
 
-        dockerhub_repo="dockerspringpet"
+        dockerhub_repo="naveens04"
         docker_image="spring-petclinic"
         docker_tag="${env.BUILD_ID}"
         source="${WORKSPACE}/Dockerfile"
@@ -56,6 +56,8 @@ environment {
                 
                sh 'sudo docker tag ${docker_image}:${docker_tag} ${dockerhub_repo}/${docker_image}:${docker_tag}' 
                sh 'sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}'
+
+               
             }
         }
     }
