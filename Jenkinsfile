@@ -33,7 +33,7 @@ environment {
                 echo"-----------Build Started for Docker Image---------"
               
                 sh 'cp -p ${source} ${destination}'
-                sh 'cd ${destination}; sudo docker build -t ${docker_image}:1.'
+                sh 'cd ${destination}; sudo docker build -t ${docker_image}:v1.'
             
 
                 echo"-----------Build Ended for Docker Image----------"
@@ -53,9 +53,9 @@ environment {
 
        stage('Push docker image') {
             steps {
-                                sh 'sudo docker tag ${docker_image}:v1 ${dockerhub_repo}/${docker_image}:1'
+                                sh 'sudo docker tag ${docker_image}:v1 ${dockerhub_repo}/${docker_image}:v1'
 
-                sh 'sudo docker push ${dockerhub_repo}/${docker_image}:1'
+                sh 'sudo docker push ${dockerhub_repo}/${docker_image}:v1'
             }
         }
     }
