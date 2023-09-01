@@ -14,7 +14,7 @@ environment {
         docker_tag="${env.BUILD_ID}"
         source="${WORKSPACE}/Dockerfile"
         destination="/home/ubuntu/.m2/repository/org/springframework/samples/spring-petclinic/3.1.0-SNAPSHOT/"
-        DOCKER_PASSWORD=credentials('Dockerlogin')
+        DOCKERHUB_CREDENTIALS = credentials('Dockerlogin')
         dockerhub_repo="naveens04"
         DOCKER_USERNAME="naveens04"
     
@@ -36,6 +36,12 @@ environment {
         }
         
        
+
+        stage('Dockerhub login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
 
         stage('Push docker image') {
             steps {
