@@ -13,7 +13,7 @@ environment {
         docker_image="spring-petclinic"
         docker_tag="${env.BUILD_ID}"
         source="${WORKSPACE}/Dockerfile"
-        destination="/home/ubuntu/.m2/repository/org/springframework/samples/spring-petclinic/3.1.0-SNAPSHOT/spring-petclinic-3.1.0-SNAPSHOT.jar"
+        destination="/home/ubuntu/.m2/repository/org/springframework/samples/spring-petclinic/3.1.0-SNAPSHOT/"
         DOCKER_PASSWORD=credentials('Dockerlogin')
         dockerhub_repo="naveens04"
         DOCKER_USERNAME="naveens04"
@@ -30,8 +30,8 @@ environment {
 
          stage('Build docker image') {
             steps {
-                sh 'sudo su - cp -p ${source} ${destination}'
-                sh 'sudo su  - cd ${destination}; sudo docker build -t ${docker_image}:${docker_tag} .'
+                sh 'cp -p ${source} ${destination}'
+                sh '- cd ${destination}; sudo docker build -t ${docker_image}:${docker_tag} .'
             }
         }
         
