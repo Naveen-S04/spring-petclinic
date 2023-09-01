@@ -10,7 +10,7 @@ environment {
 
 
         dockerhub_repo="naveens04"
-        docker_image="spring-petclinic"
+        docker_image="dockerspringpet"
         docker_tag="${env.BUILD_ID}"
         source="${WORKSPACE}/Dockerfile"
         destination="/home/ubuntu/.m2/repository/org/springframework/samples/spring-petclinic/3.1.0-SNAPSHOT/"
@@ -54,8 +54,8 @@ environment {
        stage('Push docker image') {
     steps {
         sh 'echo "--------started pushing--------"'
-        sh "sudo docker tag ${docker_image}:${docker_tag} ${dockerhub_repo}/${docker_image}:${docker_tag}"
-        sh  "sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}"
+        sh 'sudo docker tag ${docker_image}:${docker_tag} ${dockerhub_repo}/${docker_image}:${docker_tag}'
+        sh 'sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}'
         
         sh 'echo "---------push complete-------------"'
     }
