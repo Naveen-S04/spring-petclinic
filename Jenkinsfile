@@ -35,11 +35,7 @@ environment {
             }
         }
         
-        stage('Dockerhub login') {
-            steps {
-                sh 'echo $DOCKER_PASSWORD |sudo docker login -u $DOCKER_USERNAME '
-            }
-        }
+       
 
         stage('Push docker image') {
             steps {
