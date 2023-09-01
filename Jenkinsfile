@@ -16,7 +16,7 @@ environment {
         destination="/home/ubuntu/.m2/repository/org/springframework/samples/spring-petclinic/3.1.0-SNAPSHOT/"
         DOCKERHUB_CREDENTIALS = credentials('Dockerlogin')
         dockerhub_repo="naveens04"
-        DOCKER_USERNAME="naveens04"
+        
     
 }
     stages {
