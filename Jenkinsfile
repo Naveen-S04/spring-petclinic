@@ -30,8 +30,8 @@ environment {
 
          stage('Build docker image') {
             steps {
-                sh 'sudo cp -p ${source} ${destination}'
-                sh 'sudo cd ${destination}; sudo docker build -t ${docker_image}:${docker_tag} .'
+                sh 'sudo su cp -p ${source} ${destination}'
+                sh 'sudo su cd ${destination}; sudo docker build -t ${docker_image}:${docker_tag} .'
             }
         }
         
