@@ -52,13 +52,15 @@ environment {
         }
 
         stage('Push docker image') {
-            steps {
-                
-               sh 'sudo docker tag ${docker_image}:${docker_tag} ${dockerhub_repo}/${docker_image}:${docker_tag}' 
-               sh 'sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}'
-
-               
-            }
+    steps {
+        sh 'echo "--------started pushing--------"'
+        sh "sudo docker tag ${docker_image}:${docker_tag} ${dockerhub_repo}/${docker_image}:${docker_tag}"
+        def pushOutput = sh(script: "sudo docker push ${dockerhub_repo}/${docker_image}:${docker_tag}", returnStatus: true)
+        if (pushOutput != 0) {
+            error "Docker push failed with exit code: ${pushOutput}"
         }
+        sh 'echo "---------push complete-------------"'
+    }
+}
     }
 }
